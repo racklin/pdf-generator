@@ -1,0 +1,24 @@
+{
+    "name": "racklin/pdf-generator",
+    "description": "simple pdf generator for laravel 5",
+    "keywords" : ["laravel", "pdf", "tcpdf"],
+    "license" : "MIT",
+    "authors": [
+        {
+            "name": "Rack Lin",
+            "email": "racklin@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.*",
+        "nicmart/string-template": "~0.1",
+        "tecnickcom/tcpdf": "6.2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Racklin\\PdfGenerator": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

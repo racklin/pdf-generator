@@ -81,6 +81,13 @@ class PdfGenerator
                     $tcpdf->Image($img, $d['x'], $d['y'], $d['w']?:0, $d['h']?:0, '', '', '', false, 300, '', false, false, 0);
                 }
 
+                // html
+                if (!empty($d['html'])) {
+                    $html = $this->stEngine->render($d['html'], $data);
+                    $html = str_replace("\n", "<br/>", $html);
+                    $tcpdf->writeHTMLCell($d['w']?:0, $d['h']?:0, $d['x'], $d['y'], $html);
+                }
+
             }
         }
 

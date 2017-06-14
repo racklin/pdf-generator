@@ -1,0 +1,35 @@
+{
+  "info": {
+    "page_format": "A4",
+    "page_orientation": "P",
+    "page_units": "mm",
+    "top-margin": 0,
+    "left-margin": 0,
+    "right-margin": 0,
+    "bottom-margin": 0,
+    "title": "Example 01",
+    "author": "Rack Lin",
+    "subject": "PDF Generator example01",
+    "keywords": "pdf, pdf-generator"
+  },
+  "pages": [
+    {
+      "data": [
+        {
+          "x": 0,
+          "y": 10,
+          "font": "cid0cs",
+          "font-size": 14,
+          "text": "Test1 {name}"
+        },
+        {
+          "x": 0,
+          "y": 20,
+          "font": "cid0cs",
+          "font-size": 18,
+          "html": "<b><font color=\"red\">中文2\n{cname}</font></b>"
+        }
+      ]
+    }
+  ]
+}

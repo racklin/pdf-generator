@@ -74,6 +74,13 @@ class PdfGenerator
                     }
                 }
 
+                // image
+                if (!empty($d['image'])) {
+                    $img = $this->stEngine->render($d['image'], $data);
+
+                    $tcpdf->Image($img, $d['x'], $d['y'], $d['w']?:0, $d['h']?:0, '', '', '', false, 300, '', false, false, 0);
+                }
+
             }
         }
 

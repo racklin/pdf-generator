@@ -62,7 +62,7 @@ class PdfGenerator
 
                 // text
                 if (!empty($d['text'])) {
-                    $txt = $this->stEngine->render($d['text'], $data);
+                    $txt = $this->renderText($d['text'], $data);
                     $lines = explode("\n", $txt);
 
                     $offsetY = ceil($d['font-size']/2.834 ?: 4);
@@ -76,14 +76,14 @@ class PdfGenerator
 
                 // image
                 if (!empty($d['image'])) {
-                    $img = $this->stEngine->render($d['image'], $data);
+                    $img = $this->renderText($d['image'], $data);
 
                     $tcpdf->Image($img, $d['x'], $d['y'], $d['w']?:0, $d['h']?:0, '', '', '', false, 300, '', false, false, 0);
                 }
 
                 // html
                 if (!empty($d['html'])) {
-                    $html = $this->stEngine->render($d['html'], $data);
+                    $html = $this->renderText($d['html'], $data);
                     $html = str_replace("\n", "<br/>", $html);
                     $tcpdf->writeHTMLCell($d['w']?:0, $d['h']?:0, $d['x'], $d['y'], $html);
                 }
@@ -133,6 +133,18 @@ class PdfGenerator
         $tcpdf->setFontSubsetting(true);
 
         return $tcpdf;
+    }
+
+    /**
+     * @param $template
+     * @param $data
+     * @return mixed|string
+     */
+    protected function renderText($template, $data) {
+        $text = $this->stEngine->render($template, $data);
+        // empty undefined variable
+        $text = preg_replace("/[\w.]+}/","", $text);
+        return $text;
     }
 
 }

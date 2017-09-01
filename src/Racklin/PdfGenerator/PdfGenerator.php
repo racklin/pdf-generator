@@ -143,7 +143,7 @@ class PdfGenerator
     protected function renderText($template, $data) {
         $text = $this->stEngine->render($template, $data);
         // empty undefined variable
-        $text = preg_replace("/[\w.]+}/","", $text);
+        $text = preg_replace("/{[\w.]+}/","", $text);
         return $text;
     }
 
